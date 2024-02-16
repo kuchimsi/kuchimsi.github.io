@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Frontend Developer</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/aos.css">
+    <link rel="stylesheet" href="./assets/css/line-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+     <!-- Jquery lib -->
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <!-- React lib -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container flex-lg-column">
+            <a class="navbar-brand mx-lg-auto mb-lg-4" href="#">
+                <span class="h3 fw-bold d-block d-lg-none">Your Name</span>
+                <img src="./assets/images/headshot.JPG" class="d-none d-lg-block rounded-circle" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#work">Work Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#requirements">Experiments in React and Javascript</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- //NAVBAR -->
+
+    <!-- CONTENT WRAPPER -->
+    <div id="content-wrapper">
+
+        <!-- HOME -->
+        <section id="home" class="full-height px-lg-5">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <h1 class="display-4 fw-bold" data-aos="fade-up"><span class="text-brand"><p>I am Sri Ram Sai Vamsi Kuchimanchi.</p></span> </h1>
+                        <p class="lead mt-2 mb-4" data-aos="fade-up" data-aos-delay="300">Andhra Pradesh, India</p>
+                        <h5>Currently a Masters in Information Technology student in University of Cincinnati, Ohio. </h5>
+                        <div data-aos="fade-up" data-aos-delay="600">
+                            <a href="#contact" class="link-custom">Contact Me</a>
+                        </div>
+                        <br><br><br><br><br>
+                        <!-- Jokes API -->
+                        <ul>
+            <li><h5 class="mb-0">Joke of the Day:</h5> <div id="joke"></div> </li>
+            <script>
+            function fetchNewJoke() {
+            $.get("https://v2.jokeapi.dev/joke/Programming?type=single", function(result) {
+            if (result && result.joke) {
+                console.log("from jokeapi:" + JSON.stringify(result));
+                $("#joke").html(result.joke);
+            } else {
+                $("#joke").text("Could not retrieve a joke at this time");
+            }
+                });
+            }
+	          fetchNewJoke();
+	          setInterval(fetchNewJoke, 60000);
+            </script>
+            <!-- Today's Weather -->
+            <br>
+            
+            <li>
+              <h5 class="mb-0">Cincinnati Weather</h5>
+              <div id="Weather"></div>
+              <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+              <script>
+                  $.get("https://api.weatherbit.io/v2.0/current?key=5d55d3bd2a3844f0a658a05b4d977cee&postal_code=45220&country=US", function (result) {
+                      if (result && result.data[0]) {
+                          var weatherDescription = result.data[0].weather.description;
+                          var iconCode = result.data[0].weather.icon;
+                          var weatherIcon = "<img src='https://www.weatherbit.io/static/img/icons/" + iconCode + ".png' alt='" + weatherDescription + "' style='width: 25px;'>";
+                          var temperature = result.data[0].temp;
+                          $("#Weather").html(weatherDescription + " " + weatherIcon + ", Temp: " + temperature + "°C");
+                      } else {
+                          $("#Weather").text("Could not retrieve weather information at this time");
+                      }
+                  });
+              </script>
+            </li>
+        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- //HOME -->
+
+        <!-- SKILLS -->
+        <section id="skills" class="full-height px-lg-5">
+            <div class="container">
+
+                <div class="row pb-4" data-aos="fade-up">
+                    <div class="col-lg-8">
+                        <h6 class="text-brand">SKILLS</h6>
+                    </div>
+                </div>
+
+                <div class="row gy-4">
+
+                    <div class="col-md-4" data-aos="fade-up">
+                        <div class="service p-4 bg-base rounded-4 shadow-effect">
+                            <div class="iconbox rounded-4">
+                                <i class="las la-feather"></i>
+                            </div>
+                            <h5 class="mt-4 mb-2">Web Design</h5>
+                            <p>Worked with Javascript, CSS, HTML, React Js</p>
+                            <a href="#" class="link-custom">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service p-4 bg-base rounded-4 shadow-effect">
+                            <div class="iconbox rounded-4">
+                                <i class="las la-pencil-ruler"></i>
+                            </div>
+                            <h5 class="mt-4 mb-2">Programming Languages</h5>
+                            <p>Had practical experience with Java, Python.</p>
+                            <a href="#" class="link-custom">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                        <div class="service p-4 bg-base rounded-4 shadow-effect">
+                            <div class="iconbox rounded-4">
+                                <i class="las la-laptop-code"></i>
+                            </div>
+                            <h5 class="mt-4 mb-2">Operating Systems</h5>
+                            <p>Windows, Linux</p>
+                            <a href="#" class="link-custom">Learn More</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- SKILLS -->
+
+        <!-- WORK -->
+        <section id="work" class="full-height px-lg-5">
+            <div class="container">
+
+                <div class="row pb-4" data-aos="fade-up">
+                    <div class="col-lg-8">
+                        <h6 class="text-brand">WORK</h6>
+                    </div>
+                </div>
+
+                <div class="row gy-4">
+                    <div class="col-md-6" data-aos="fade-up">
+                        <div class="card-custom rounded-4 bg-base shadow-effect">
+                            <div class="card-custom-image rounded-4">
+                                <img class="rounded-4" src="./assets/images/internship.jpeg" alt="">
+                            </div>
+                            <div class="card-custom-content p-4">
+                                <h4>Application developer Intern, NSIC  </h4>
+                                <h5>May 2019 – July 2019 </h5>
+                                <p> Collaborated with application engineers to develop an application called “Attendance management system”. Trained with tools like Visual code, Eclipse. Got familiarized with real time requirement gathering.  </p>
+                                <a href="#" class="link-custom">See Here</a>
+                            </div>
+                        </div>
+                    </div>
+
+                      <div class="col-md-6" data-aos="fade-up">
+                        <div class="card-custom rounded-4 bg-base shadow-effect">
+                            <div class="card-custom-image rounded-4">
+                                <img class="rounded-4" src="./assets/images/cognizant.jpg" alt="">
+                            </div>
+                            <div class="card-custom-content p-4">
+                                <h4>Junior Software Engineer, COGNIZANT</h4>
+                                <h5>10/2021 – 07/2023 </h5>
+                                <p> Collaborated closely with Full Stack technologies during the training period, that include Java, Python, Spring Boot, Database management, HTML, CSS, JavaScript. Planned daily scrum meetings to update on project progress. Demonstrated exceptional interpersonal and communication skills, improving team, collaboration, and customer relationships. Started in a real time project with Merck group as client. We ensured their applications to be up and running always by resolving the issues, provided support all day. Communicated with Germany clients, addressing requests on incidents and tickets regarding application issues, guided users on software licenses. Interacted with numerous clients for collecting product feedback. Conducted 4-week workshop to fresher candidates to familiarize themselves with application backend environment and regarding scrum calls. </p>
+                                <a href="#" class="link-custom">See Here</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+        <!-- //WORK -->
+
+        <!-- ABOUT -->
+        <section id="about" class="full-height px-lg-5">
+            <div class="container">
+
+                <div class="row pb-4" data-aos="fade-up">
+                    <div class="col-lg-8">
+                        <h6 class="text-brand">Education</h6>
+                    </div>
+                </div>
+
+                <div class="row gy-5">
+                    <div class="col-lg-6">
+                        <div class="row gy-4">
+
+                            <div class="col-12" data-aos="fade-up" data-aos-delay="600">
+                                <div class="bg-base p-4 rounded-4 shadow-effect">
+                                    <h4>Master of Science: Information Technology  </h4>
+                                    <h5>University of Cincinnati, Cincinnati, Ohio  </h5>
+                                    <p class="text-brand mb-2">Anticipated Graduation: Apr 2025 </p>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="col-12" data-aos="fade-up" data-aos-delay="600">
+                                <div class="bg-base p-4 rounded-4 shadow-effect">
+                                    <h4>Bachelor of Technology: Computer Science and Engineering.</h4>
+                                    <h5>GMR Institute of Technology, Andhra Pradesh, India </h5>
+                                    <p class="text-brand mb-2">Graduated: Aug 2021 </p>
+                                    <h2>GPA:  3.6</h2>
+                                </div>
+                            </div>
+
+                            
+
+                </div>
+
+            </div>
+        </div>
+        </div>
+        </section>
+        <!-- REQUIREMENTS -->
+        <section id="requirements" class="full-height px-lg-5">
+            <div class="container">
+                <h2 class="mb-5">Experiments </h2>
+                <ul class="fa-ul mb-0">
+      
+                  <!-- <li>
+                  <br>
+                    <h3 class="mb-0">Contact me</h5>
+                  </li> -->
+                  <br>
+                  <!-- Show my mail ID -->
+                  <li><div id="email" onclick="showhideEmail()"><h5 class="mb-0">show my email</h5></div></li>
+                  <script>
+                    var shown = false;
+                    function showhideEmail(){
+                      if (shown){
+                      document.getElementById('email').innerHTML = "<h5>Show my email</h5>";
+                      shown = false;
+                      }else{
+                      var myemail ="<h5><a heref='mailto:kuchimsi" + "@" + "mail.uc.edu'>kuchimsi" + "@" + "mail.uc.edu</a></h5>";
+                      document.getElementById("email").innerHTML = myemail;
+                      shown = true;
+                      }
+                    }
+                  </script>
+                  <h5 class="mb-0">Mobile Number: +1 (513) 413-6036 </h5>
+                  <br>
+                  <!-- Projects -->
+                  <h3 class="mb-0">Experiments</h5>
+                  <!-- Git url -->
+                  Repository URL: <a href="https://github.com/kuchimsi"> https://github.com/kuchimsi</a>
+                  <br>
+                  <br>
+                    <h3 class="mb-0">Small live experiments</h5>
+                    <!-- React -->
+                    <div id="root"></div>
+                    <!-- React Script -->
+                    <script src="assets/js/main.edf8ac75.js"></script>
+                    <script>
+                      // Get a reference to the root div
+                      const rootElement = document.getElementById('root');
+      
+                      // Render your React component inside the root div
+                      ReactDOM.render(React.createElement(DigitalClock), rootElement);
+                    </script>
+                    </li>
+                    <li>
+                    <!-- dital clock -->
+                    <h5 class="mb-0">Digital clock with Javascript:</h5>
+                      <div id="digit-clock"></div>
+                      <script>
+                        function displayTime() {
+                          document.getElementById('digit-clock').innerHTML="current time :"+ new Date();
+      
+                        }
+                        setInterval(displayTime,500);
+                      </script>
+                  </li>
+                  <br>
+      
+                  <!-- Analog clock -->
+                <li>
+                  <h5 class="mb-0">Analog clock:</h5>
+                  <canvas id="analog-clock" width="150" height="150" style="background-color:#999"></canvas>
+                </li>
+                <script src="https://waph-uc.github.io/clock.js"></script>
+                <script>
+                  // Analog Clock
+                  var canvas= document.getElementById("analog-clock");
+                  var ctx=canvas.getContext("2d");
+                  var radius= canvas.height /2;
+                  ctx.translate(radius, radius);
+                  radius=radius * 0.90;
+                  setInterval(drawClock, 1000);
+                  function drawClock(){
+                    drawFace(ctx, radius);
+                    drawNumbers(ctx, radius);
+                    drawTime(ctx, radius);
+                  }
+                </script>
+                <br>
+                <!-- Show date -->
+                <li>
+                  <h5 class="mb-0">Date:</h5>
+                  <div id="date" onclick="document.getElementById('date').innerText=Date()">Click here to show date</div>
+                </li>
+              </ul>
+
+            </div>
+        </section>
+        <!-- //REQUIREMENTS -->
+
+        <!-- CONTACT -->
+        <section id="contact" class="full-height px-lg-5">
+            <div class="container">
+
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8 pb-4" data-aos="fade-up">
+                        <h6 class="text-brand">CONTACT</h6>
+                        <h1>Interested in working together? Let's talk!
+                        </h1>
+                    </div>
+
+                    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+                        <p>Mobile: +1 5134136036</p>
+                        <p>Mail id: vamsiksrs@gmail.com</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+        <!-- //CONTACT -->
+
+        <!-- FOOTER -->
+        <footer class="py-5 px-lg-5">
+            <div class="container">
+                <div class="row gy-4 justify-content-between">
+                    <div class="col-auto">
+                        <p class="mb-0">Designed by <a href="#" class="fw-bold">Your Name | All Rights Reserved</a></p>
+                    </div>
+                    <div class="col-auto">
+                        <div class="social-icons">
+                            <a href="#"><i class="lab la-twitter"></i></a>
+                            <a href="#"><i class="lab la-instagram"></i></a>
+                            <a href="#"><i class="lab la-dribbble"></i></a>
+                            <a href="#"><i class="lab la-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- //FOOTER -->
+    </div>
+    <!-- //CONTENT WRAPPER -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/aos.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
